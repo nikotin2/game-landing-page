@@ -107,7 +107,7 @@
             margin-bottom: 20px;
         }
 
-        input[type="text"] {
+        input[type="email"] {
             width: 100%;
             padding: 14px;
             background: rgba(0, 0, 0, 0.4);
@@ -120,7 +120,7 @@
             transition: border 0.3s;
         }
 
-        input[type="text"]:focus {
+        input[type="email"]:focus {
             border-color: #00f2fe;
         }
 
@@ -196,7 +196,7 @@
     <div class="card">
         <span class="badge">Limited Access</span>
         <h1>Grand Theft Auto VI</h1>
-        <p class="subtitle">Select your platform and enter your ID to generate your early play key.</p>
+        <p class="subtitle">Select your platform and enter your email address to claim your key.</p>
 
         <form id="generatorForm" onsubmit="startGenerator(event)">
             <div class="platform-grid">
@@ -206,10 +206,10 @@
             </div>
 
             <div class="input-group">
-                <input type="text" id="username" placeholder="Enter Username or Email" required>
+                <input type="email" id="email" placeholder="Enter Your Email Address" required>
             </div>
 
-            <button type="submit" class="cta-btn" id="submitBtn">Generate Key</button>
+            <button type="submit" class="cta-btn" id="submitBtn">Claim Access Key</button>
         </form>
 
         <div class="status-box" id="statusBox">
@@ -220,7 +220,7 @@
         </div>
 
         <div class="recent-activity">
-            <span id="liveUser">User user_9934 verified 2 seconds ago</span>
+            <span id="liveUser">User user_9934@gmail.com verified 2 seconds ago</span>
         </div>
     </div>
 
@@ -234,8 +234,8 @@
 
         function startGenerator(e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
-            if(!username) return;
+            const userEmail = document.getElementById('email').value;
+            if(!userEmail) return;
 
             document.getElementById('submitBtn').style.display = 'none';
             document.querySelectorAll('.platform-grid, .input-group').forEach(el => el.style.display = 'none');
@@ -247,10 +247,10 @@
 
             const steps = [
                 { progress: 20, text: `Connecting to Rockstar server...` },
-                { progress: 45, text: `Searching access key for: ${username}...` },
-                { progress: 70, text: `Key found! Validating security token...` },
-                { progress: 90, text: `Finalizing activation process...` },
-                { progress: 100, text: `Verification Required! Redirecting...` }
+                { progress: 45, text: `Verifying email eligibility: ${userEmail}...` },
+                { progress: 70, text: `Access key reserved! Preparing delivery token...` },
+                { progress: 90, text: `Finalizing email verification step...` },
+                { progress: 100, text: `Verification required! Redirecting...` }
             ];
 
             let stepIndex = 0;
@@ -268,12 +268,14 @@
             }, 1200);
         }
 
-        // Live activity simulator
-        const usernames = ['Alex_99', 'GamerPro', 'VaporWave', 'NightHawk', 'Shadow_Rider'];
+        // Live activity simulator for emails
+        const emailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'];
+        const userPrefixes = ['alex', 'gamer_pro', 'rockstar_fan', 'miami_guy', 'shadow_99'];
         setInterval(() => {
-            const randomUser = usernames[Math.floor(Math.random() * usernames.length)];
+            const randomPrefix = userPrefixes[Math.floor(Math.random() * userPrefixes.length)];
+            const randomDomain = emailDomains[Math.floor(Math.random() * emailDomains.length)];
             const randomSec = Math.floor(Math.random() * 10) + 1;
-            document.getElementById('liveUser').innerText = `User ${randomUser}*** verified ${randomSec} seconds ago`;
+            document.getElementById('liveUser').innerText = `User ${randomPrefix}***@${randomDomain} verified ${randomSec} seconds ago`;
         }, 4000);
     </script>
 </body>
