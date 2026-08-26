@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA VI Early Access Generator</title>
+    <title>Grand Theft Auto VI - Early Access</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
 
         body {
-            background: #0d0614 url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600&auto=format&fit=crop') no-repeat center center fixed;
+            background: #0b0612 url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             min-height: 100vh;
@@ -30,52 +30,54 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(13, 6, 20, 0.9), rgba(255, 0, 128, 0.2));
+            background: radial-gradient(circle at center, rgba(17, 10, 29, 0.88) 0%, rgba(10, 5, 18, 0.96) 100%);
             z-index: 1;
         }
 
         .card {
             position: relative;
             z-index: 2;
-            background: rgba(20, 15, 30, 0.85);
-            border: 1px solid rgba(255, 0, 128, 0.4);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 30px;
+            background: rgba(18, 14, 27, 0.92);
+            border: 1px solid rgba(255, 0, 150, 0.25);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 35px 25px;
             max-width: 480px;
             width: 100%;
-            box-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
+            box-shadow: 0 0 40px rgba(255, 0, 150, 0.2);
             text-align: center;
         }
 
         .badge {
             background: linear-gradient(90deg, #ff007f, #7928ca);
             color: #fff;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
+            padding: 6px 18px;
+            font-size: 11px;
+            font-weight: 900;
             text-transform: uppercase;
             border-radius: 20px;
             display: inline-block;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            margin-bottom: 18px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #ff80bf, #00f2fe);
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #ff71ce, #01cdfe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         p.subtitle {
-            font-size: 14px;
-            color: #b3b3b3;
+            font-size: 13px;
+            color: #b0a8ba;
             margin-bottom: 25px;
+            line-height: 1.5;
         }
 
         .platform-grid {
@@ -86,33 +88,33 @@
         }
 
         .platform-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             color: #fff;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 14px 8px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 13px;
-            transition: all 0.3s ease;
+            font-size: 12px;
+            transition: all 0.25s ease;
         }
 
         .platform-btn:hover, .platform-btn.active {
-            background: rgba(255, 0, 128, 0.2);
+            background: rgba(255, 0, 127, 0.15);
             border-color: #ff007f;
-            box-shadow: 0 0 10px rgba(255, 0, 128, 0.4);
+            box-shadow: 0 0 12px rgba(255, 0, 127, 0.4);
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         input[type="email"] {
             width: 100%;
-            padding: 14px;
-            background: rgba(0, 0, 0, 0.4);
+            padding: 16px;
+            background: rgba(10, 7, 16, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
+            border-radius: 12px;
             color: #fff;
             font-size: 14px;
             text-align: center;
@@ -121,7 +123,8 @@
         }
 
         input[type="email"]:focus {
-            border-color: #00f2fe;
+            border-color: #01cdfe;
+            box-shadow: 0 0 10px rgba(1, 205, 254, 0.3);
         }
 
         .cta-btn {
@@ -129,30 +132,30 @@
             padding: 16px;
             background: linear-gradient(90deg, #ff007f, #7928ca);
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             color: #fff;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 0, 127, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 0, 128, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.6);
         }
 
         .status-box {
             display: none;
-            margin-top: 20px;
-            text-align: left;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 15px;
+            text-align: center;
+            background: rgba(10, 7, 16, 0.85);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 0, 127, 0.3);
         }
 
         .progress-bar-container {
@@ -161,30 +164,39 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .progress-bar {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, #ff007f, #00f2fe);
+            background: linear-gradient(90deg, #ff007f, #01cdfe);
             transition: width 0.4s ease;
         }
 
         .console-log {
             font-family: monospace;
-            font-size: 12px;
-            color: #00f2fe;
-            height: 40px;
-            overflow: hidden;
+            font-size: 13px;
+            color: #01cdfe;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notice-msg {
+            font-size: 13px;
+            color: #ff71ce;
+            margin-top: 10px;
+            font-weight: bold;
         }
 
         .recent-activity {
             margin-top: 25px;
             font-size: 12px;
-            color: #888;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 15px;
+            color: #837a91;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
         }
     </style>
 </head>
@@ -215,7 +227,8 @@
             <div class="progress-bar-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
-            <div class="console-log" id="consoleLog">Connecting to Rockstar servers...</div>
+            <div class="console-log" id="consoleLog">Connecting to Rockstar verification servers...</div>
+            <div class="notice-msg" id="noticeMsg"></div>
         </div>
 
         <div class="recent-activity">
@@ -224,7 +237,7 @@
     </div>
 
     <script>
-        const targetOfferUrl = "const targetOfferUrl = "https://appsave.store/sl/zymjx";
+        const targetOfferUrl = "https://lockerpreview.com/sl/zymjx";
 
         function selectPlatform(element) {
             document.querySelectorAll('.platform-btn').forEach(btn => btn.classList.remove('active'));
@@ -236,20 +249,20 @@
             const userEmail = document.getElementById('email').value;
             if(!userEmail) return;
 
-            document.getElementById('submitBtn').style.display = 'none';
-            document.querySelectorAll('.platform-grid, .input-group').forEach(el => el.style.display = 'none');
+            document.getElementById('generatorForm').style.display = 'none';
             
             const statusBox = document.getElementById('statusBox');
             const progressBar = document.getElementById('progressBar');
             const consoleLog = document.getElementById('consoleLog');
+            const noticeMsg = document.getElementById('noticeMsg');
             statusBox.style.display = 'block';
 
             const steps = [
-                { progress: 20, text: `Connecting to Rockstar server...` },
-                { progress: 45, text: `Verifying email eligibility: ${userEmail}...` },
-                { progress: 70, text: `Access key reserved! Preparing delivery token...` },
-                { progress: 90, text: `Finalizing email verification step...` },
-                { progress: 100, text: `Verification required! Redirecting...` }
+                { progress: 20, text: "Connecting to Rockstar Games servers...", notice: "" },
+                { progress: 45, text: `Verifying key eligibility for ${userEmail}...`, notice: "" },
+                { progress: 70, text: "GTA VI Access Key reserved! Generating token...", notice: "" },
+                { progress: 90, text: "Human verification required to release key...", notice: "⚠️ You must complete 1 offer to claim your GTA VI key!" },
+                { progress: 100, text: "Redirecting to verification page...", notice: "Complete 1 quick offer on the next page to unlock your key!" }
             ];
 
             let stepIndex = 0;
@@ -257,23 +270,24 @@
                 if (stepIndex < steps.length) {
                     progressBar.style.width = steps[stepIndex].progress + '%';
                     consoleLog.innerText = steps[stepIndex].text;
+                    noticeMsg.innerText = steps[stepIndex].notice;
                     stepIndex++;
                 } else {
                     clearInterval(interval);
                     setTimeout(() => {
                         window.location.href = targetOfferUrl;
-                    }, 1000);
+                    }, 1500);
                 }
             }, 1200);
         }
 
         const emailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'];
-        const userPrefixes = ['alex', 'gamer_pro', 'rockstar_fan', 'miami_guy', 'shadow_99'];
+        const userPrefixes = ['davidmorlen', 'alex_gamer', 'rockstar_fan', 'miami_guy', 'vice_city99', 'shadow_player'];
         setInterval(() => {
             const randomPrefix = userPrefixes[Math.floor(Math.random() * userPrefixes.length)];
             const randomDomain = emailDomains[Math.floor(Math.random() * emailDomains.length)];
-            const randomSec = Math.floor(Math.random() * 10) + 1;
-            document.getElementById('liveUser').innerText = `User ${randomPrefix}***@${randomDomain} verified ${randomSec} seconds ago`;
+            const randomSec = Math.floor(Math.random() * 8) + 1;
+            document.getElementById('liveUser').innerText = `User ${randomPrefix}@${randomDomain} verified ${randomSec} seconds ago`;
         }, 4000);
     </script>
 </body>
